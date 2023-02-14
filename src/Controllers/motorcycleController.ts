@@ -45,7 +45,7 @@ class MotorcyclesController {
       engineCapacity: this.req.body.engineCapacity,
     };
 
-    const result = await this.service.updateCar(id, motor);
+    const result = await this.service.updateMotorcycle(id, motor);
     
     if (result === null) return this.res.status(404).json({ message: 'Motorcycle not found' });
     if (result === undefined) return this.res.status(422).json({ message: 'Invalid mongo id' });

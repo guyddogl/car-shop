@@ -26,7 +26,7 @@ class MotorcycleService {
     return motorcycles.map((e: IMotorcycle) => this.createNewMotorDomain(e));
   }
 
-  public async updateCar(id: string, motor: IMotorcycle) {
+  public async updateMotorcycle(id: string, motor: IMotorcycle) {
     const motorcycleODM = new MotorcycleODM();
     const motorcycles = await motorcycleODM.updateVehicle(id, motor);
     if (motorcycles === undefined) return undefined;
