@@ -2,7 +2,7 @@ import ICar from '../Interfaces/ICar';
 import Car from '../Domains/Car';
 import CarODM from '../Models/carODM';
 
-class CarsService {
+class CarService {
   private createNewCarDomain(car: ICar): Car | null { return new Car(car); }
 
   public async createNewCar(car: ICar) { 
@@ -33,4 +33,4 @@ class CarsService {
   }
 }
 
-export default CarsService;
+export default CarService;
