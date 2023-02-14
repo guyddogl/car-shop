@@ -26,6 +26,15 @@ class CarODM {
     if (!isValidObjectId(id)) return undefined;
     return this.model.find({ _id: id });
   }
+
+  public async updateCar(id: string, car: ICar) {
+    if (!isValidObjectId(id)) return undefined;
+    return this.model.findByIdAndUpdate(
+      { _id: id },
+      { ...car },
+      { new: true },
+    );
+  }
 }
 
 export default CarODM;

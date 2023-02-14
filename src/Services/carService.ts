@@ -3,10 +3,7 @@ import Car from '../Domains/Car';
 import CarODM from '../Models/carODM';
 
 class CarsService {
-  private createNewCarDomain(car: ICar): Car | null {
-    if (car) { return new Car(car); }
-    return null;
-  }
+  private createNewCarDomain(car: ICar): Car | null { return new Car(car); }
 
   public async createNewCar(car: ICar) { 
     const carODM = new CarODM();
@@ -25,6 +22,14 @@ class CarsService {
     const cars = await carODM.getCarByID(id);
     if (cars === undefined) return undefined;
     return cars.map((e: ICar) => this.createNewCarDomain(e));
+  }
+
+  public async updateCar(id: string, car: ICar) {
+    const carODM = new CarODM();
+    const newCar = await carODM.updateCar(id, car);
+    if (newCar === undefined) return undefined;
+    if (newCar === null) return null;
+    return this.createNewCarDomain(newCar);
   }
 }
 
