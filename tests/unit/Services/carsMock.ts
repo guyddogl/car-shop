@@ -31,3 +31,13 @@ export const mockCar: ICars = {
   doorsQty: 4,
   seatsQty: 5,
 };
+
+export const mockUpdateCar = {
+  id: '63eada69945a9369ec7df41e',
+  model: 'Fusion',
+  year: 2017,
+  color: 'White',
+  buyValue: 99.99,
+  doorsQty: 4,
+  seatsQty: 5,
+};
