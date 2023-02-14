@@ -9,7 +9,7 @@ class MotorcycleService {
 
   public async createNewMotorcycle(motor: IMotorcycle) { 
     const motorODM = new MotorcycleODM();
-    const newMotor = await motorODM.createNewMotorcycle(motor);
+    const newMotor = await motorODM.createNewVehicle(motor);
     return this.createNewMotorDomain(newMotor);
   }
 }
