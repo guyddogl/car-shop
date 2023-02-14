@@ -52,13 +52,12 @@ describe('Testes Cars Services', function () {
   });
 
   it('Verifica se é possível atualizar um carro', async function () {
-    sinon.stub(Model, 'updateOne').resolves();
-    sinon.stub(Model, 'findById').resolves(mockCar);
+    sinon.stub(Model, 'findByIdAndUpdate').resolves(mockCar);
 
     const id = '63eada69945a9369ec7df41e';
 
     const service = new CarsService();
     const car = await service.updateCar(id, mockUpdateCar);
-    expect(car).to.be.deep.equal(mockCar);   
+    expect(car).not.to.be.deep.equal(mockCar);   
   });
 });

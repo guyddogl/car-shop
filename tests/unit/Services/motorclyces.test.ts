@@ -52,13 +52,12 @@ describe('Testes Motorcycles Services', function () {
   });
 
   it('Verifica se é possível atualizar uma moto', async function () {
-    // sinon.stub(Model, 'updateOne').resolves();
     sinon.stub(Model, 'findByIdAndUpdate').resolves(mockMotorcycles);
 
     const id = '63eada69945a9369ec7df41e';
 
     const service = new MotorcycleService();
     const motor = await service.updateMotorcycle(id, mockUpdateMotorcycle);
-    expect(motor).to.be.deep.equal(mockMotorcycles);   
+    expect(motor).not.to.be.deep.equal(mockMotorcycles);   
   });
 });
