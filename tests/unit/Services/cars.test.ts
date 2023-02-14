@@ -1,6 +1,6 @@
+import sinon from 'sinon';
 import { expect } from 'chai';
 import { Model } from 'mongoose';
-import sinon from 'sinon';
 import Car from '../../../src/Domains/Car';
 import CarsService from '../../../src/Services/carService';
 import { mockCars, mockCar } from './carsMock';
@@ -39,5 +39,15 @@ describe('Testes Cars Services', function () {
     const result = await service.getCarByID('6348513f34c397abcad040b2');
 
     expect(result).to.be.deep.equal([car]);    
+  });
+
+  it('Retorna erro caso o ID não seja encontrado', async function () {
+    sinon.stub(Model, 'findById').resolves({});
+    try {
+      const service = new CarsService();
+      await service.getCarByID('12345');
+    } catch (error) {
+      expect((error as Error).message).to.be.equal('Car not found');
+    }
   });
 });
